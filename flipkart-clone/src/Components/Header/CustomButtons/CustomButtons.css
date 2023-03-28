@@ -1,0 +1,29 @@
+.button-container{
+    display: flex;
+    /* margin: 0 3% 0 auto; */
+    font-weight: 600;
+}
+
+.button-container Button{
+    color: #2874f0;
+    background:white;
+    text-transform: none;
+    box-shadow: none;
+    border-radius: 2px;
+    padding: 0 40px;
+    margin:10px 40px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.button-container p{
+    margin-right: 40px;
+    font-size: 16px;
+}
+
+.cart{
+   display:flex;
+   margin-top: 19px;
+    margin-right: 40px;
+    font-size: 14px;
+}
