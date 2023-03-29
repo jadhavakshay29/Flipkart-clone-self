@@ -2,8 +2,8 @@ import './Header.css';
 import {AppBar, Toolbar} from '@mui/material';
 
 //components
-import Search from './Search/Search';
-import CustomButtons from './CustomButtons/CustomButtons';
+import Search from '../Search/Search';
+import CustomButtons from '../CustomButtons/CustomButtons';
 
 const Header = ()=>{
 

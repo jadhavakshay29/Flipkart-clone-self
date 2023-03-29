@@ -3,6 +3,10 @@
    height:55px;
 }
 
+.app-bar{
+    position: fixed;
+}
+
 .brand-logo{
     width: 75px;
     margin-left: 200px;

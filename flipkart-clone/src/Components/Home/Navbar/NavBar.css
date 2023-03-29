@@ -1,0 +1,19 @@
+.nav-catagory{
+    display: flex;
+    margin:55px 220px 0 220px;  
+    justify-content: space-between;
+}
+
+.catagory-img{
+    width: 60px;
+}
+
+.catagory-caption{
+    margin-top: auto;
+    font-size: 14px;
+    font-weight: 600; 
+}
+
+.catagory-container{
+    padding: 12px 8px;
+}
