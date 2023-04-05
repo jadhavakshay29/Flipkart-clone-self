@@ -1,5 +1,5 @@
 import './Banner.css';
-import Carousal from 'react-multi-carousel';
+import Carousal from 'react-multi-carousel';  
 import { bannerData } from '../../../constants/Data';
 import 'react-multi-carousel/lib/styles.css';  //applies that sliding css to images
 

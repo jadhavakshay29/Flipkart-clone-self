@@ -23,7 +23,26 @@
 
 .cart{
    display:flex;
-   margin-top: 19px;
+   margin-top: 20px;
     margin-right: 40px;
     font-size: 14px;
+}
+
+.cart span:nth-child(3){
+    margin-top :1px;
+}
+/* .cart :first-child{
+    font-size: 20px;
+} */
+
+.button-container Button:hover{
+    color: #2874f0;
+    background:white;
+    text-transform: none;
+    box-shadow: none;
+    border-radius: 2px;
+    padding: 0 40px;
+    margin:10px 40px;
+    font-size: 14px;
+    font-weight: 600;
 }

@@ -16,7 +16,7 @@ const Header = ()=>{
               <div>
                  <img src={logoURL} alt="logo" className='brand-logo'></img>
                     <div className='explore-logo'>
-                       <p>Explore<span style={{color:"yellow"}}> Plus</span></p>
+                       <p>Explore<span style={{color:"yellow"}}> Plus </span></p>
                        <img src={subLogoURL} className="plus-img" alt="sub-logo"></img>
                     </div>
               </div>
