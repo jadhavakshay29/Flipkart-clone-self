@@ -1,5 +1,6 @@
 import './Header.css';
 import {AppBar, Toolbar} from '@mui/material';
+import { Link } from 'react-router-dom';
 
 //components
 import Search from '../Search/Search';
@@ -13,13 +14,16 @@ const Header = ()=>{
     return (
        <AppBar className="app-bar">
            <Toolbar>
-              <div>
-                 <img src={logoURL} alt="logo" className='brand-logo'></img>
-                    <div className='explore-logo'>
-                       <p>Explore<span style={{color:"yellow"}}> Plus </span></p>
-                       <img src={subLogoURL} className="plus-img" alt="sub-logo"></img>
-                    </div>
-              </div>
+              <Link to={'/'} style={{textDecoration:'none', color:'white'}}> {/*this will bring us back to home page */}
+                  <div>
+                     <img src={logoURL} alt="logo" className='brand-logo'></img>
+                        <div className='explore-logo'>
+                           <p>Explore<span style={{color:"yellow"}}> Plus </span></p>
+                           <img src={subLogoURL} className="plus-img" alt="sub-logo"></img>
+                        </div>
+                  </div>
+              </Link>
+              
               <Search/>
               <div>
                   <CustomButtons/>

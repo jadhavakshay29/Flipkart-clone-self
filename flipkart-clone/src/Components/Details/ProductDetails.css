@@ -1,0 +1,43 @@
+.detail-container{
+    margin-top: 10px;
+    padding:0 0 0 24px;
+}
+  
+
+.offers p{
+    font-size: 14px;
+    vertical-align: baseline;
+}
+
+.badge-icon{
+    color: rgb(70, 178, 70);
+    margin-right: 10px;
+   
+}
+
+.description-container {
+    width: 100%;
+    max-width: 600px; /* adjust as needed */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: break-word;
+  }
+
+  .table-rows{
+    font-size: 14px;
+    vertical-align: baseline;
+    border: none;
+  }
+  .table-rows :nth-child(1){
+    font-size: 14px;
+    vertical-align: baseline;
+    border: none;
+  }
+  .table-rows :nth-child(2){
+    font-size: 14px;
+    vertical-align: baseline;
+    border: none;
+  }
+
+

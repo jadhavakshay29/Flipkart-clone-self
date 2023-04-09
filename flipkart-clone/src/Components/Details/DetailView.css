@@ -1,0 +1,31 @@
+.main-container{
+    background-color: #f2f2f2;
+    margin-top:2px ;
+}
+
+.parent-grid{
+    background-color: white;
+    /* display: flex;
+    margin: 0 100px; */
+}
+
+
+.ratings :nth-child(2){
+    margin-top: 2px;
+    color: white;
+    font-size: 14px;
+    background-color: #388E3C;
+    padding: 2px 7px;
+    border-radius: 2px;
+}
+.ratings :nth-child(3){
+    margin-top: 2px;
+    color: #878787;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.ratings :nth-child(4) img{
+    width: 77px;
+    margin-left: 18px;
+}

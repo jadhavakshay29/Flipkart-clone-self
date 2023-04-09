@@ -2,6 +2,7 @@ import Carousel from 'react-multi-carousel';
 import './Slides.css';
 import { product } from '../../../constants/Products';
 import { Button, Divider } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const Slides =(props)=>{
 
@@ -42,15 +43,21 @@ const Slides =(props)=>{
                 
                     {
                         product.map((item, index)=>(
-                            <div key={index} className='product-container'>
-                                <img  src={item.image} alt='products' className='products-imgs'></img>
-                                {/* {console.log(item.image)} */}
-                                <div className='titles product-container'>
-                                    <span>{item.shortTitle}</span>
-                                    <span>{item.price}</span>
-                                    <span>{item.title}</span>
+                            <Link to={`product/${item.id}`} style={{textDecoration:'none'}}>  {/*wrapping inside Link cause on clicking this div we need tp activate routing 
+                                            'to should match with path used in Routes */}
+                                <div
+                                key={index} 
+                                className='product-container'container>
+                                    <img  src={item.image} alt='products' className='products-imgs'></img>
+                                    {/* {console.log(item.image)} */}
+                                    <div 
+                                    className='titles product-container'>
+                                        <span>{item.shortTitle}</span>
+                                        <span>{item.startingPrice}</span>
+                                        <span>{item.title}</span>
+                                    </div>
                                 </div>
-                            </div>
+                            </Link>
                         ))
                     }
                 </Carousel>

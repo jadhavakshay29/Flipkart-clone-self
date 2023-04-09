@@ -1,0 +1,2 @@
+MUI : Material UI
+    : contains predefined components which we can use in our projects

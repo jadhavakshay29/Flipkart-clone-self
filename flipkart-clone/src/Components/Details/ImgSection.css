@@ -1,0 +1,19 @@
+.main-container{
+    min-width: 40%;
+    padding: 10px 0 0 80px;
+    background-color: white;
+}
+
+.main-container img{
+   
+    width: 90%;
+    height: auto;  
+}
+
+.main-container Button{
+     width:44%;
+     height:55px;
+     border-radius: 2px;
+     font-weight: 600;
+     
+}

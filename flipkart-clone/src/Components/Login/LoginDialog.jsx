@@ -42,7 +42,7 @@ const LoginDialog = (props) => {
           ...signup,
          [ e.target.name]: e.target.value,
       });
-      console.log(signup);
+      // console.log(signup);
   }
 
   const signupUser = (e)=>{
@@ -55,7 +55,7 @@ const LoginDialog = (props) => {
       onClose={handleClose}
       PaperProps={{ sx: { maxWidth: "unset" } }}
     >
-      {console.log(props.open)}
+      {/* {console.log(props.open)} */}
       <div className="login-box-container">
         <div className="left-dailog">
           <h1 style={{ color: "white" }}>{account.heading}</h1>
