@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import Search from '../Search/Search';
 import CustomButtons from '../CustomButtons/CustomButtons';
 
-const Header = ()=>{
+const Header = ({productToView})=>{
 
     const logoURL = 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/flipkart-plus_8d85f4.png';  
     const subLogoURL = 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/plus_aef861.png';
@@ -24,7 +24,7 @@ const Header = ()=>{
                   </div>
               </Link>
               
-              <Search/>
+              <Search productToView={productToView} />
               <div>
                   <CustomButtons/>
               </div>

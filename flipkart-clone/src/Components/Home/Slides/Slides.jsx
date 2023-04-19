@@ -1,8 +1,11 @@
 import Carousel from 'react-multi-carousel';
 import './Slides.css';
-import { product } from '../../../constants/Products';
 import { Button, Divider } from '@mui/material';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import {setProducts} from '../../../redux/actions/productActions';
 
 const Slides =(props)=>{
 
@@ -20,6 +23,25 @@ const Slides =(props)=>{
           items: 1
         }
       };
+
+      const products = useSelector((state)=> state.allProducts.products);
+      const dispatch = useDispatch();
+
+      const fetchProducts = async()=>{
+            const response = await axios
+            .get("https://content.newtonschool.co/v1/pr/63b6c911af4f30335b4b3b89/products")
+            .catch((error)=>{
+                console.log("error", error);
+            })
+            // console.log(response.data);
+            dispatch(setProducts(response.data));
+      };
+
+      useEffect(()=>{
+        fetchProducts();
+      },[]);
+
+      console.log("products", products);
 
     return(
         <div className='slide-container'>
@@ -42,7 +64,7 @@ const Slides =(props)=>{
                 className='carasoul'>
                 
                     {
-                        product.map((item, index)=>(
+                        products.map((item, index)=>(
                             <Link to={`product/${item.id}`} style={{textDecoration:'none'}}>  {/*wrapping inside Link cause on clicking this div we need tp activate routing 
                                             'to should match with path used in Routes */}
                                 <div
@@ -52,8 +74,7 @@ const Slides =(props)=>{
                                     {/* {console.log(item.image)} */}
                                     <div 
                                     className='titles product-container'>
-                                        <span>{item.shortTitle}</span>
-                                        <span>{item.startingPrice}</span>
+                                        <span>From Rs {item.price}</span>
                                         <span>{item.title}</span>
                                     </div>
                                 </div>

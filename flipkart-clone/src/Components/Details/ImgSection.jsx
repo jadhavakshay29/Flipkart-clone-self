@@ -2,12 +2,19 @@ import './ImgSection.css';
 import {Button} from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import FlashOnIcon from '@mui/icons-material/FlashOn';
+import { useSelector } from 'react-redux';
 
-const ImgSection = ({productToView})=>{
-    return(
-        <div className='main-container'>
+
+const ImgSection = ()=>{
+
+    //using this we can access product in any component
+        const products = useSelector((state)=>state.allProducts.products);
+        // console.log(products);
+    const renderList = products.map((product, index)=>{
+         return(
+        <div className='main-container' key={index}>
              <div style={{ padding: '15px 20px', border: '1px solid #f0f0f0'}}>
-                    <img src={productToView.image} alt='product img'/>
+                    <img src={product.image} alt='product img'/>
              </div>
              
              <Button variant='contained' style={{marginRight:'10px', background:'#FF9F00'}}>
@@ -18,6 +25,8 @@ const ImgSection = ({productToView})=>{
             </Button>
         </div>
     )
+    })
+   return <>{renderList}</>
 }
 
 export default ImgSection;

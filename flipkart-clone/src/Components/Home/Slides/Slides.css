@@ -46,10 +46,10 @@
    font-size: 14px;
 
 }
-.titles span:nth-child(2){
+.titles span:nth-child(1){
    color:green;
 }
-.titles span:nth-child(3){
+.titles span:nth-child(2){
    color:rgba(128, 128, 128,0.8);
 }
 
