@@ -18,17 +18,22 @@ const LoginDialog = (props) => {
       };
     
       const SignupinitialValues = {
-          phone:''
+          phone:'',
+          otp:''
       }
 
     //states 
     let [account, toggleAccount] = useState(accountInitialValues.login);
     let [signup,setSignup] = useState(SignupinitialValues);
+    const [signupData, setSignupData] = useState([]);
+    const [signupDataArray, setSignupDataArray] = useState([]);
+
 
   //to close the login tab
   const handleClose = () => {
     props.setOpen(false);
     toggleAccount(accountInitialValues.login); //so that after closing signup on clicking again login should open
+
   };
 
 
@@ -37,17 +42,26 @@ const LoginDialog = (props) => {
   };
 
   const onInputChange = (e)=>{
-      //e.target.value 
+    if (e.target) {
       setSignup({
           ...signup,
-         [ e.target.name]: e.target.value,
+          [ e.target.name]: e.target.value,
       });
-      // console.log(signup);
   }
+    setSignupData({
+        ...signupData,
+        [e.target.name]: e.target.value,
+    });
+}
 
-  const signupUser = (e)=>{
-     e.preventDefault();
-  }
+
+const signupUser = (e)=>{
+  e.preventDefault();
+  console.log(signupDataArray);
+  setSignupDataArray([...signupDataArray, signupData]); // add the signupData array to signupDataArray
+  setSignupData([]); // clear the signupData after storing it in an array
+}
+
 
   return (
     <Dialog
@@ -82,7 +96,7 @@ const LoginDialog = (props) => {
         ) : (
           <div className="right-dialog">
               <div style={{display:'flex', marginTop:'2px'}}> 
-                  <TextField variant="standard" name='phone' onChange={(e)=>onInputChange()} label="Mobile Number" />
+                  <TextField variant="standard" name='phone' onChange={(e)=>onInputChange(e)} label="Mobile Number" />
                   <span style={{color:'#2874f0', margin:'40px 0 0 15px'}}>Change?</span>
               </div>
               <div style={{display:'flex', marginTop:'5px'}}>
@@ -90,10 +104,10 @@ const LoginDialog = (props) => {
                  <span style={{color:'#2874f0', margin:'50px 0 0 60px'}} >Resend?</span>
               </div>
             
-            <TextField variant="standard" name='phone' onChange={(e)=>onInputChange()} label="Enter OTP" />
+            <TextField variant="standard" name='otp' onChange={(e)=>onInputChange(e)} label="Enter OTP" />
             <Button className="login-btn" 
             style={{ marginTop: "20px" }}
-            onClick={signupUser}>
+            onClick={(e)=>signupUser(e)}>
               Continue
             </Button>
             <Button className="otp-request-btn" 
