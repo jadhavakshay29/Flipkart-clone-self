@@ -1,0 +1,35 @@
+.heading-container{
+    padding:15px 24px;
+    background-color: white;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.heading{
+    color:#878787;
+
+}
+
+.bill-container{
+    padding:15px 24px;
+    background-color: white;
+    
+}
+.bill-container p{
+    margin-bottom: 20px;
+    font-size: 16px;
+
+}
+.bill-container p span{
+   float: right; /*takes prices on right hand side*/
+
+}
+
+.green{
+    color:green;
+    font-weight: 500;
+}
+
+.green-txt{
+    color:green;
+    font-weight: 600;
+}

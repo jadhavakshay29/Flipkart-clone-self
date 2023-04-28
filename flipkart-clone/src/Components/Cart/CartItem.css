@@ -1,0 +1,31 @@
+.cart-item-container{
+    border-top: 1px solid #f0f0f0;
+    display: flex;
+    background-color: white;
+}
+
+.left-part{
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.right-part{
+    margin:0 20px;
+}
+.seller{
+    color: #878787;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.remove-btn{
+    margin-top: 10px;
+    font-size: 16px;
+    color:black;
+    font-weight: 600;
+}
+
+.remove-btn:hover{
+    color:#2874f0;
+}

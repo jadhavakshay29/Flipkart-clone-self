@@ -2,12 +2,17 @@ import './CustomButtons.css';
 import {Button} from '@mui/material';
 import {ShoppingCart} from '@mui/icons-material';
 import Tippy from '@tippyjs/react';
+import { Link } from 'react-router-dom';
+import { Badge } from '@mui/material';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 //components
 import LoginDialog from '../../Login/LoginDialog';
-import { useState } from 'react';
+
 import LoginMore from '../LoginMore/LoginMore';
 import MoreT from '../MoreT/MoreT';
+
 
 const CustomButtons = ()=>{
    
@@ -16,6 +21,8 @@ const CustomButtons = ()=>{
    const openDialog= ()=>{
       setOpen(true);
    }
+
+   const {cartItems} = useSelector(state=> state.cart);
 
    return(
       <div className='button-container'>
@@ -27,11 +34,12 @@ const CustomButtons = ()=>{
           <Tippy content={<MoreT/>} interactive={true}>
              <p style={{cursor:'pointer'}}>More</p>
          </Tippy>
-          <div className='cart'>
-             <ShoppingCart/>
-             <span>&nbsp;</span>
-             <span>Cart</span>
-          </div>
+          <Link className='cart' to='/cart' >
+            <Badge badgeContent={cartItems?.length} color="secondary">
+               <ShoppingCart/>
+            </Badge>
+             <span> Cart</span>
+          </Link>
           <LoginDialog open={open} setOpen={setOpen}/>
       </div>
    )

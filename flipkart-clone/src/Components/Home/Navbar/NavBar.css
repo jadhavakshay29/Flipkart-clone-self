@@ -2,6 +2,7 @@
     display: flex;
     margin:55px 220px 0 220px;  
     justify-content: space-between;
+    background-color: white;
 }
 
 .catagory-img{

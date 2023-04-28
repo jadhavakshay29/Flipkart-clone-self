@@ -4,7 +4,7 @@ import { Grid, Table,TableBody, TableCell, TableRow } from '@mui/material';
 import LocalOfferIcon   from '@mui/icons-material/LocalOffer';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { selectedProducts } from '../../redux/actions/productActions';
+import { selectedProducts,removeSelectedProducts } from '../../redux/actions/productActions';
 import axios from 'axios';
 import { useEffect } from 'react';
 
@@ -14,8 +14,10 @@ const ProductDetails = ()=>{
     console.log(products)
     //we'll get product id using useParam as we are routing based on id 
     const {id} = useParams();
+    //parseInt(id, 10) js function - takes 2 parameters - string to be parsed and base that represents numbering system
+    const productIndex = parseInt(id, 10) - 1; 
     const dispatch = useDispatch();
-   
+    
 
     const fetchProductDetail =async ()=>{
         const response = await axios
@@ -28,8 +30,11 @@ const ProductDetails = ()=>{
     }
 
      useEffect(()=>{
-        if(id && id!== ""){
-             fetchProductDetail();
+            if(id && id!== ""){
+                fetchProductDetail();
+            }
+        return ()=>{
+            dispatch(removeSelectedProducts())
         }
      },[id]);
     
@@ -40,26 +45,26 @@ const ProductDetails = ()=>{
 
     let discount = Math.floor((Math.random() * 60) + 10);
 
-           //to calculte OriginalPrice on product
+     //to calculte OriginalPrice on product
      const OriginalPrice = ()=>{
-            let Oprice = (product.price) / (1-(discount/100));
-            console.log(Oprice);
-            return Oprice.toFixed();
+            let Oprice = (products[productIndex].price) / (1-(discount/100));
+            // console.log(Oprice);
+            return Oprice.toFixed(2);
    }
 
     return(
         <div className='detail-container'>
               <Grid >
                   <div className='ratings'>
-                      <p style={{fontSize:'20px'}}>{product.title}</p>
-                      <span> {product.rating}
+                      <p style={{fontSize:'20px'}}>{products[productIndex].title}</p>
+                      <span> {products[productIndex].rating.rate}
                             <StarIcon style={{margin:'2px 0 0 2px', fontSize:'14px'}}/>
                       </span>
                       <span> 4,167 Ratings & 293 Reviews</span>
                       <span><img src={fassured} alt='flipkart assured logo'/></span>
                   </div>   
                     <div style={{marginTop:'10px'}}>
-                        <span style={{fontSize:28, fontWeight:600}}>₹{product.price}</span>
+                        <span style={{fontSize:28, fontWeight:600}}>₹{products[productIndex].price}</span>
                         <span style={{color:'#878787', marginLeft:'10px',textDecorationLine: 'line-through'}}>₹{OriginalPrice()}</span>
                         <span style={{color:'#388E3C', marginLeft:'10px', fontWeight:500}}>{discount}% off</span>
                     </div>
@@ -85,7 +90,7 @@ const ProductDetails = ()=>{
                                 <TableCell >
                                     <span style={{color:'#2874f0'}}>SAVADIKAFASHION</span>
                                     <p>10 Days Return Policy ?</p>
-                                    <p>View more sellers starting from {product.price}</p>
+                                    <p>View more sellers starting from {products[productIndex].price}</p>
                                 </TableCell>
                             </TableRow>
                             <TableRow>
@@ -95,14 +100,13 @@ const ProductDetails = ()=>{
                             </TableRow>
                             <TableRow>
                                 <TableCell style={{color:'#878787',fontWeight:600}}>Description</TableCell>
-                                <TableCell className='description-container '>{product.description}</TableCell>
+                                <TableCell className='description-container '>{products[productIndex].description}</TableCell>
                             </TableRow>
                         </TableBody>
                     </Table>
                 </Grid>
         </div>
     )
-
 }
 
 export default ProductDetails;

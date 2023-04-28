@@ -15,3 +15,23 @@
     color:blue;
     padding: 5px;
 }
+
+.search-list {
+    position: absolute;
+    background-color: white;
+    color: black;
+    top: 100%; /* Position the search results container below the search bar */
+    width: 34%;
+    max-height: 400px;
+    overflow-y: scroll;
+    border: 1px solid #ccc; /* Add border to the search results container */
+    border-top: none; /* Remove top border so it looks like an extension of the search bar */
+    border-radius: 0 0 3px 3px; /* Add rounded corners to the bottom */
+    z-index: 1; /* Set a high z-index to ensure the search results display on top of other content */
+  }
+
+.search-list-container {
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+

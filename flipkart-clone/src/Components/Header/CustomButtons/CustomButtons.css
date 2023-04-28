@@ -22,10 +22,13 @@
 }
 
 .cart{
-   display:flex;
-   margin-top: 20px;
+   /* display:flex; */
+   /* margin-top: 17px; */
     margin-right: 40px;
     font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
 }
 
 .cart span:nth-child(3){
