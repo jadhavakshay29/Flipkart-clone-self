@@ -17,9 +17,11 @@ import MoreT from '../MoreT/MoreT';
 const CustomButtons = ()=>{
    
    let [open, setOpen] = useState(false);
+   
 
    const openDialog= ()=>{
       setOpen(true);
+     
    }
 
    const {cartItems} = useSelector(state=> state.cart);
@@ -27,7 +29,14 @@ const CustomButtons = ()=>{
    return(
       <div className='button-container'>
          <Tippy content={<LoginMore/>} interactive={true}>
-            <Button onClick={()=>openDialog()} variant="contained">Login</Button>
+            {/* {
+                   showLogin ? (
+                     
+                   ) : (
+                     <span>{userName}</span>
+                   )
+            } */}
+           <Button onClick={()=>openDialog()} variant="contained">Login</Button>
          </Tippy>
           
           <p>Become a Seller</p>
@@ -40,7 +49,7 @@ const CustomButtons = ()=>{
             </Badge>
              <span> Cart</span>
           </Link>
-          <LoginDialog open={open} setOpen={setOpen}/>
+          <LoginDialog open={open} setOpen={setOpen} />
       </div>
    )
 }
