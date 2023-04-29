@@ -17,7 +17,6 @@ import MoreT from '../MoreT/MoreT';
 const CustomButtons = ()=>{
    
    let [open, setOpen] = useState(false);
-   
 
    const openDialog= ()=>{
       setOpen(true);
