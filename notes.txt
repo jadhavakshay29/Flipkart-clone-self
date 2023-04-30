@@ -1,2 +1,1 @@
-MUI : Material UI
-    : contains predefined components which we can use in our projects
+Carousal : technical term for image horizontally swiping e.g. in e-commerce web sites
