@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { selectedProducts,removeSelectedProducts } from '../../redux/actions/productActions';
 import axios from 'axios';
-import { useEffect } from 'react';
+import { useEffect,useCallback } from 'react';
 
 const ProductDetails = ()=>{
     const products = useSelector((state)=>state.allProducts.products);
@@ -19,24 +19,33 @@ const ProductDetails = ()=>{
     const dispatch = useDispatch();
     
 
-    const fetchProductDetail =async ()=>{
-        const response = await axios
-            .get(`https://content.newtonschool.co/v1/pr/63b6c911af4f30335b4b3b89/products/${id}`)
-            .catch((error)=>{
-                console.log("error", error);
-            })
-            // console.log(response.data);
-            dispatch(selectedProducts(response.data));
-    }
+    const fetchProductDetail = useCallback(async () => {
+        const response = await axios.get(
+          `https://content.newtonschool.co/v1/pr/63b6c911af4f30335b4b3b89/products/${id}`
+        ).catch((error) => {
+            console.log("error", error);
+        });
+        dispatch(selectedProducts(response.data));
+    }, [dispatch, id]);
 
-     useEffect(()=>{
-            if(id && id!== ""){
-                fetchProductDetail();
-            }
+    //  useEffect(()=>{
+    //         if(id && id!== ""){
+    //             fetchProductDetail();
+    //         }
+    //     return ()=>{
+    //         dispatch(removeSelectedProducts())
+    //     }
+    //  },[id]);
+
+    useEffect(()=>{
+        if(id && id!== ""){
+            fetchProductDetail();
+        }
         return ()=>{
             dispatch(removeSelectedProducts())
         }
-     },[id]);
+    },[id, dispatch, fetchProductDetail]);
+    
     
     const fassured = 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/fa_62673a.png'
     const adURL = 'https://rukminim1.flixcart.com/lockin/774/185/images/CCO__PP_2019-07-14.png?q=50';

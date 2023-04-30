@@ -1,6 +1,6 @@
 import "./Payment.css";
-import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useState } from "react";
+// import { useSelector } from "react-redux";
 import { Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions,Button } from '@mui/material';
 import { useNavigate } from "react-router-dom";
 
@@ -12,6 +12,7 @@ const Payment = () => {
   const [cardNumber, setCardNumber] = useState("");
   const [expiry, setExpiry] = useState("");
   const [cvv, setCvv] = useState("");
+  const [price, setPrice] = useState("");
   const [open, setOpen] = useState(false);
 
   //on click of pay now which is submit button greet pops up
@@ -42,27 +43,30 @@ const Payment = () => {
   const handleCvvChange = (event) => {
     setCvv(event.target.value);
   };
+  const handlePriceChange = (event) => {
+    setPrice(event.target.value);
+  };
 
-  const {cartItems} = useSelector(state=> state.cart);
+  // const {cartItems} = useSelector(state=> state.cart);
 
-  const [price, setPrice] = useState(0);
-  const [discount, setDiscount] = useState(0);
+  // const [price, setPrice] = useState(0);
+  // const [discount, setDiscount] = useState(0);
 
-  useEffect(()=>{
-      totalAmount();
-  },[cartItems])
+  // useEffect(()=>{
+  //     totalAmount();
+  // },[cartItems])
 
-  const totalAmount =()=>{
-      let price = 0, discount=0;
-      cartItems.map(item=>{
-          let ProductDiscount = Math.floor((Math.random() * 60) + 10);
-          let Oprice = (item.price) / (1-(ProductDiscount/100));
-          price+= item.price;
-          discount+=( Oprice-item.price );
-      })
-    setPrice(price);
-    setDiscount(discount);
-  }
+  // const totalAmount =()=>{
+  //     let price = 0, discount=0;
+  //     cartItems.map(item=>{
+  //         let ProductDiscount = Math.floor((Math.random() * 60) + 10);
+  //         let Oprice = (item.price) / (1-(ProductDiscount/100));
+  //         price+= item.price;
+  //         discount+=( Oprice-item.price );
+  //     })
+  //   setPrice(price);
+  //   setDiscount(discount);
+  // }
 
   return (
     <div className="payment-container">
@@ -91,7 +95,7 @@ const Payment = () => {
         <br />
         <label>
           Total Amount:
-          <input type="text" value={`₹ ${(price - discount + 40).toFixed(2)}`} disabled />
+          <input type="text" value={price} onChange={handlePriceChange} required />  {/**`₹ ${(price - discount + 40).toFixed(2)}` */}
         </label>
         <br />
         <button type="submit">Pay Now</button>

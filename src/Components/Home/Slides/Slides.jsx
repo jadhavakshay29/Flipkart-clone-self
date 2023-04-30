@@ -3,7 +3,7 @@ import './Slides.css';
 import { Button, Divider } from '@mui/material';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { useEffect } from 'react';
+import { useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {setProducts} from '../../../redux/actions/productActions';
 
@@ -27,19 +27,20 @@ const Slides =(props)=>{
       const products = useSelector((state)=> state.allProducts.products);
       const dispatch = useDispatch();
 
-      const fetchProducts = async()=>{
-            const response = await axios
-            .get("https://content.newtonschool.co/v1/pr/63b6c911af4f30335b4b3b89/products")
-            .catch((error)=>{
-                console.log("error", error);
-            })
-            // console.log(response.data);
-            dispatch(setProducts(response.data));
-      };
+    
+    const fetchProducts = useCallback(async () => {
+        const response = await axios
+          .get('https://content.newtonschool.co/v1/pr/63b6c911af4f30335b4b3b89/products')
+          .catch((error) => {
+            console.log('error', error);
+          });
+        // console.log(response.data);
+        dispatch(setProducts(response.data));
+      }, [dispatch]);
 
       useEffect(()=>{
         fetchProducts();
-      },[]);
+      },[fetchProducts]);
 
       console.log("products", products);
 

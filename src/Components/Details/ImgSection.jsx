@@ -13,10 +13,13 @@ const ImgSection = ()=>{
      
     const [product, setProduct] = useState({});
     const { id } = useParams();
-    
-  
+
+    //navigate to the cart
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
     useEffect(() => {
-      const fetchProduct = async () => {
+      const fetchProductDetail = async () => {
         try {
           const response = await axios.get(`https://fakestoreapi.com/products/${id}`);
           setProduct(response.data);
@@ -24,15 +27,12 @@ const ImgSection = ()=>{
           console.log(error);
         }
       };
-  
-      fetchProduct();
-    }, [id]);
     
-    //navigate to the cart
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
+      fetchProductDetail();
+    }, [id, dispatch]);
 
-    const [quantity, setQuantity] = useState(1);
+ let quantity =1;
+ //const [quantity, setQuantity] = useState(1);
 
     const addItemToCart = async () => {
       const { data } = await axios.get(`https://fakestoreapi.com/products/${id}`);
