@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState,useCallback } from 'react';
 import './TotalBill.css';
 
 const TotalBill = ({cartItems})=>{
@@ -6,22 +6,21 @@ const TotalBill = ({cartItems})=>{
     const [price, setPrice] = useState(0);
     const [discount, setDiscount] = useState(0);
 
-    useEffect(()=>{
-        totalAmount();
-    },[cartItems])
-
-    const totalAmount =()=>{
+    const totalAmount = useCallback(()=>{
         let price = 0, discount=0;
-        cartItems.map(item=>{
+        cartItems.forEach(item=>{
             let ProductDiscount = Math.floor((Math.random() * 60) + 10);
             let Oprice = (item.price) / (1-(ProductDiscount/100));
             price+= item.price;
             discount+=( Oprice-item.price );
         })
-      setPrice(price);
-      setDiscount(discount);
-    }
-  
+        setPrice(price);
+        setDiscount(discount);
+    }, [cartItems])
+
+    useEffect(()=>{
+        totalAmount();
+    },[cartItems, totalAmount])
     return (
        <div>
             <div className='heading-container'>
