@@ -94,10 +94,10 @@ const loginUser = () => {
     // allow user to log in
     // const userName = loginValues.email.split('@')[0];
     // props.onUserNameChange(userName);
-    console.log("User is logged in");
+    alert("User is logged in");
   } else {
     // show "Sign up first" message
-    console.log("Sign up first");
+    alert("Sign up first");
   }
 };
 

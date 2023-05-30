@@ -28,13 +28,6 @@ const CustomButtons = ()=>{
    return(
       <div className='button-container'>
          <Tippy content={<LoginMore/>} interactive={true}>
-            {/* {
-                   showLogin ? (
-                     
-                   ) : (
-                     <span>{userName}</span>
-                   )
-            } */}
            <Button onClick={()=>openDialog()} variant="contained">Login</Button>
          </Tippy>
           
