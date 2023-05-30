@@ -13,7 +13,7 @@ const Header = ({productToView})=>{
 
     return (
        <AppBar className="app-bar">
-           {/* <Toolbar> */}
+           <Toolbar>
               <Link to={'/'} style={{textDecoration:'none', color:'white'}}> {/*this will bring us back to home page */}
                   <div>
                      <img src={logoURL} alt="logo" className='brand-logo'></img>
@@ -28,7 +28,7 @@ const Header = ({productToView})=>{
               <div>
                   <CustomButtons/>
               </div>
-           {/* </Toolbar> */}
+           </Toolbar>
        </AppBar>
     )
 }
