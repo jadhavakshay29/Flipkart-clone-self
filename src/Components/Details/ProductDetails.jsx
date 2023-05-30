@@ -28,15 +28,6 @@ const ProductDetails = ()=>{
         dispatch(selectedProducts(response.data));
     }, [dispatch, id]);
 
-    //  useEffect(()=>{
-    //         if(id && id!== ""){
-    //             fetchProductDetail();
-    //         }
-    //     return ()=>{
-    //         dispatch(removeSelectedProducts())
-    //     }
-    //  },[id]);
-
     useEffect(()=>{
         if(id && id!== ""){
             fetchProductDetail();
