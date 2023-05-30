@@ -6,10 +6,12 @@ import { Grid, Button } from '@mui/material';
 import CartItem from './CartItem';
 import TotalBill from './TotalBill';
 import EmptyCart from './EmptyCart';
+import { useNavigate } from 'react-router-dom';
 
 const Cart = ()=>{
 
     const {cartItems} = useSelector(state=> state.cart);
+    const navigate = useNavigate();
 
     return (
         <div>
@@ -26,7 +28,8 @@ const Cart = ()=>{
                                 )
                             }
                             <div className='place-order-btn-container'>
-                                <Button style={{display:'flex', marginLeft:'auto', backgroundColor:'#fb641b',
+                                <Button onClick={()=>navigate("/payment")}
+                                 style={{display:'flex', marginLeft:'auto', backgroundColor:'#fb641b',
                                                  color:'white',width:'250px', height:'51px', borderRadius:'2px'}}>Place Order</Button>
                             </div>
                         </Grid>

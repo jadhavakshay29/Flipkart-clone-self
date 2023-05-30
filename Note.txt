@@ -1,0 +1,9 @@
+Features of flipkart clone project-
+// Login-logout with alert
+// signin-signout with alert
+// view product info
+// add to cart 
+// buy now 
+// cart - add remove from cart
+// payment Gateway
+// search products
