@@ -74,6 +74,8 @@ const signupUser = (e) => {
 
   // store the signupDataArray in local storage
   localStorage.setItem('signupDataArray', JSON.stringify(signupDataArray));
+
+  alert("User signed in"); // Display the success message
 }
 
 useEffect(() => {
@@ -85,21 +87,29 @@ const onLoginChange = (e)=>{
     ...loginValues,
     [e.target.name] : e.target.value
    })
-   console.log("loginvalues",loginValues);
+  //  console.log("loginvalues",loginValues);
 }
 
 const loginUser = () => {
+  const userExists = signupDataArray.some((user) => {
+    return user.email &&
+     user.password &&
+      user.email === loginValues.email &&
+       user.password === loginValues.password;
+  });
 
-  if (loginValues.email === signup.email && loginValues.password === signup.password) {
-    // allow user to log in
-    // const userName = loginValues.email.split('@')[0];
-    // props.onUserNameChange(userName);
+  if (userExists) {
+    // User exists, allow login
+    props.setIsLoggedIn(true);
+    props.setUserName(loginValues.email);
     alert("User is logged in");
   } else {
-    // show "Sign up first" message
+    // User does not exist, show "Sign up first" message
     alert("Sign up first");
   }
 };
+
+
 
 const toggleLogin =()=>{
   toggleAccount(accountInitialValues.login);
