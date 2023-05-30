@@ -42,7 +42,7 @@ const CustomButtons = ()=>{
 
           
           <p>Become a Seller</p>
-          <Tippy content={<MoreT/>} interactive={true}>
+          <Tippy content={<MoreT/>} interactive={true}>  
              <p style={{cursor:'pointer'}}>More</p>
          </Tippy>
           <Link className='cart' to='/cart' >

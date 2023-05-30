@@ -7,3 +7,4 @@ Features of flipkart clone project-
 // cart - add remove from cart
 // payment Gateway
 // search products
+// Tooltip on on hovering over more and login button
