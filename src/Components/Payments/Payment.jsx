@@ -1,9 +1,7 @@
 import "./Payment.css";
 import { useState } from "react";
-// import { useSelector } from "react-redux";
 import { Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions,Button } from '@mui/material';
 import { useNavigate } from "react-router-dom";
-
 
 const Payment = () => {
 
