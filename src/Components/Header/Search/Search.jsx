@@ -1,6 +1,5 @@
 import { InputBase, ListItem } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
-// import { useState } from 'react';
 import './Search.css';
 import { useState } from 'react';
 import { useSelector  } from 'react-redux';
@@ -9,7 +8,6 @@ import { Link } from 'react-router-dom';
 
 const Search = ()=>{
      
-    // const [searchResults, setSearchResults] = useState([]);
     const [text, setText] = useState('');
 
     const products = useSelector((state)=>state.allProducts.products);
