@@ -21,7 +21,7 @@ const ImgSection = ()=>{
     useEffect(() => {
       const fetchProductDetail = async () => {
         try {
-          const response = await axios.get(`https://fakestoreapi.com/products/${id}`);
+          const response = await axios.get(`https://content.newtonschool.co/v1/pr/63b6c911af4f30335b4b3b89/products/${id}`);
           setProduct(response.data);
         } catch (error) {
           console.log(error);
@@ -35,7 +35,7 @@ const ImgSection = ()=>{
  //const [quantity, setQuantity] = useState(1);
 
     const addItemToCart = async () => {
-      const { data } = await axios.get(`https://fakestoreapi.com/products/${id}`);
+      const { data } = await axios.get(`https://content.newtonschool.co/v1/pr/63b6c911af4f30335b4b3b89/products/${id}`);
       dispatch(addToCart(data, quantity));
       navigate("/cart");
     };

@@ -11,7 +11,7 @@ import { useEffect,useCallback } from 'react';
 const ProductDetails = ()=>{
     const products = useSelector((state)=>state.allProducts.products);
 
-    console.log(products)
+    // console.log(products)
     //we'll get product id using useParam as we are routing based on id 
     const {id} = useParams();
     //parseInt(id, 10) js function - takes 2 parameters - string to be parsed and base that represents numbering system

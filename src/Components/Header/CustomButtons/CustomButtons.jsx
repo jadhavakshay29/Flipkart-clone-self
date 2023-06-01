@@ -33,7 +33,7 @@ const CustomButtons = ()=>{
                      <span><button className='log-out-btn' onClick={() => setIsLoggedIn(false)}>Logout</button></span>
                      </div>
                      ) : (
-                     <Tippy content={<LoginMore/>} interactive={true}>
+                     <Tippy content={<LoginMore/>} interactive={true}>  
                         <Button onClick={() => openDialog()} variant="contained">Login</Button>
                      </Tippy>
                      )}

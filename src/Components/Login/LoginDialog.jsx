@@ -36,14 +36,12 @@ const LoginDialog = (props) => {
     const [errors, setErrors] = useState({});
 
 
-    // const [signupDataArray, setSignupDataArray] = useState([]);
+    // to stored signed up user data into local storage 
     const [signupDataArray, setSignupDataArray] = useState(() => {
-      const storedData = localStorage.getItem('signupDataArray');
+      const storedData = localStorage.getItem('signupDataArray');  //to get stored data under key signupDataArray
       return storedData ? JSON.parse(storedData) : [];
     });
     
-
-
   //to close the login tab
   const handleClose = () => {
     props.setOpen(false);

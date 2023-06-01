@@ -21,6 +21,7 @@ const TotalBill = ({cartItems})=>{
     useEffect(()=>{
         totalAmount();
     },[cartItems, totalAmount])
+    
     return (
        <div>
             <div className='heading-container'>
