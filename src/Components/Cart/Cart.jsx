@@ -1,12 +1,14 @@
 import { useSelector } from 'react-redux';
 import './Cart.css';
 import { Grid, Button } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
+
 
 //components
 import CartItem from './CartItem';
 import TotalBill from './TotalBill';
 import EmptyCart from './EmptyCart';
-import { useNavigate } from 'react-router-dom';
+
 
 const Cart = ()=>{
 

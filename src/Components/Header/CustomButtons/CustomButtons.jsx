@@ -9,10 +9,8 @@ import { useSelector } from 'react-redux';
 
 //components
 import LoginDialog from '../../Login/LoginDialog';
-
 import LoginMore from '../LoginMore/LoginMore';
 import MoreT from '../MoreT/MoreT';
-
 
 const CustomButtons = ()=>{
    
