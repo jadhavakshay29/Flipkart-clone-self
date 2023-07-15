@@ -1,13 +1,10 @@
 import "./Payment.css";
 import { useState } from "react";
-// import { useSelector } from "react-redux";
 import { Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions,Button } from '@mui/material';
 import { useNavigate } from "react-router-dom";
 
-
 const Payment = () => {
-  
-// const MasterCardLogo = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNojE81lgFIFiCPsb-uDHwpEIpbgyTYEnAI3TxF4M2ntJmn8rTXlrP9ibUwWEnqiaZtV0&usqp=CAU'
+
 
   const [cardNumber, setCardNumber] = useState("");
   const [expiry, setExpiry] = useState("");
@@ -47,27 +44,6 @@ const Payment = () => {
     setPrice(event.target.value);
   };
 
-  // const {cartItems} = useSelector(state=> state.cart);
-
-  // const [price, setPrice] = useState(0);
-  // const [discount, setDiscount] = useState(0);
-
-  // useEffect(()=>{
-  //     totalAmount();
-  // },[cartItems])
-
-  // const totalAmount =()=>{
-  //     let price = 0, discount=0;
-  //     cartItems.map(item=>{
-  //         let ProductDiscount = Math.floor((Math.random() * 60) + 10);
-  //         let Oprice = (item.price) / (1-(ProductDiscount/100));
-  //         price+= item.price;
-  //         discount+=( Oprice-item.price );
-  //     })
-  //   setPrice(price);
-  //   setDiscount(discount);
-  // }
-
   return (
     <div className="payment-container">
       <h1>Payment Gateway</h1>
@@ -85,7 +61,7 @@ const Payment = () => {
         <br />
         <label>
           Expiry Date:
-          <input type="text" maxlength="7" value={expiry} onChange={handleExpiryChange} required />
+          <input type="text" maxlength="8" value={expiry} onChange={handleExpiryChange} required />
         </label>
         <br />
         <label>

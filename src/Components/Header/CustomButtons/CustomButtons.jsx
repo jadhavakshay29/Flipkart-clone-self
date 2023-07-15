@@ -9,14 +9,14 @@ import { useSelector } from 'react-redux';
 
 //components
 import LoginDialog from '../../Login/LoginDialog';
-
 import LoginMore from '../LoginMore/LoginMore';
 import MoreT from '../MoreT/MoreT';
-
 
 const CustomButtons = ()=>{
    
    let [open, setOpen] = useState(false);
+   const [isLoggedIn, setIsLoggedIn] = useState(false);
+   const [userName, setUserName] = useState("");
 
    const openDialog= ()=>{
       setOpen(true);
@@ -27,19 +27,20 @@ const CustomButtons = ()=>{
 
    return(
       <div className='button-container'>
-         <Tippy content={<LoginMore/>} interactive={true}>
-            {/* {
-                   showLogin ? (
-                     
-                   ) : (
-                     <span>{userName}</span>
-                   )
-            } */}
-           <Button onClick={()=>openDialog()} variant="contained">Login</Button>
-         </Tippy>
+         {isLoggedIn ? (
+                     <div className='log-out-div'>
+                     <span style={{marginLeft:"10px"}}>Welcome {userName.split("@")[0]}!</span>
+                     <span><button className='log-out-btn' onClick={() => setIsLoggedIn(false)}>Logout</button></span>
+                     </div>
+                     ) : (
+                     <Tippy content={<LoginMore/>} interactive={true}>  
+                        <Button onClick={() => openDialog()} variant="contained">Login</Button>
+                     </Tippy>
+                     )}
+
           
           <p>Become a Seller</p>
-          <Tippy content={<MoreT/>} interactive={true}>
+          <Tippy content={<MoreT/>} interactive={true}>  
              <p style={{cursor:'pointer'}}>More</p>
          </Tippy>
           <Link className='cart' to='/cart' >
@@ -48,7 +49,7 @@ const CustomButtons = ()=>{
             </Badge>
              <span> Cart</span>
           </Link>
-          <LoginDialog open={open} setOpen={setOpen} />
+          <LoginDialog open={open} setOpen={setOpen} setIsLoggedIn={setIsLoggedIn}  setUserName={setUserName}/>
       </div>
    )
 }

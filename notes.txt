@@ -1,1 +1,13 @@
 Carousal : technical term for image horizontally swiping e.g. in e-commerce web sites
+
+Features of flipkart clone project-
+// Login-logout with alert
+// signin-signout with alert
+// login and signup validation
+// view product info
+// add to cart 
+// buy now 
+// cart - add remove from cart
+// payment Gateway
+// search products
+// Tooltip on on hovering over more and login button

@@ -49,3 +49,18 @@
     font-size: 14px;
     font-weight: 600;
 }
+
+.log-out-div{
+    display: flex;
+    justify-content:center;
+}
+
+.button-container Button{
+    border: none;
+    padding:5px 20px;
+}
+
+.button-container Button:hover{
+    border: none;
+    padding:5px 20px;
+}

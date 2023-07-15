@@ -13,10 +13,6 @@ const LoginMore = () => {
 
   return (
     <div className="icon-container">
-      {/* <div>
-        <span>New Customer?</span>
-        <span>Signup</span>
-      </div>  */}
       <div>
         <AccountCircleIcon style={{margin:'10px 0 15px 10px', color:'#2874f0'}} />
         <span>My Profile</span>

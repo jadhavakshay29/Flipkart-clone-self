@@ -11,7 +11,7 @@ import { useEffect,useCallback } from 'react';
 const ProductDetails = ()=>{
     const products = useSelector((state)=>state.allProducts.products);
 
-    console.log(products)
+    // console.log(products)
     //we'll get product id using useParam as we are routing based on id 
     const {id} = useParams();
     //parseInt(id, 10) js function - takes 2 parameters - string to be parsed and base that represents numbering system
@@ -32,18 +32,19 @@ const ProductDetails = ()=>{
         if(id && id!== ""){
             fetchProductDetail();
         }
-        return ()=>{
-            dispatch(removeSelectedProducts())
+        return ()=>{  //cleanup function 
+            dispatch(removeSelectedProducts()); //when component unmouted we are clearing selected products data
         }
     },[id, dispatch, fetchProductDetail]);
     
     
     const fassured = 'https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/fa_62673a.png'
     const adURL = 'https://rukminim1.flixcart.com/lockin/774/185/images/CCO__PP_2019-07-14.png?q=50';
-
+    
+    //returns time stand of current date plus adding 5 days multiple of 24 hrs giving us 5 days future date from current date
     const date = new Date(new Date().getTime()+(5*24*60*60*1000)); 
 
-    let discount = Math.floor((Math.random() * 60) + 10);
+    let discount = Math.floor((Math.random() * 60) + 10);  // 0 to 69
 
      //to calculte OriginalPrice on product
      const OriginalPrice = ()=>{

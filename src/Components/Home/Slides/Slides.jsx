@@ -42,7 +42,7 @@ const Slides =(props)=>{
         fetchProducts();
       },[fetchProducts]);
 
-      console.log("products", products);
+      // console.log("products", products);
 
     return(
         <div className='slide-container'>
@@ -66,10 +66,10 @@ const Slides =(props)=>{
                 
                     {
                         products.map((item, index)=>(
-                            <Link to={`product/${item.id}`} style={{textDecoration:'none'}}>  {/*wrapping inside Link cause on clicking this div we need tp activate routing 
+                            <Link key={index} to={`product/${item.id}`} style={{textDecoration:'none'}}>  {/*wrapping inside Link cause on clicking this div we need tp activate routing 
                                             'to should match with path used in Routes */}
                                 <div
-                                key={index} 
+                                
                                 className='product-container'container>
                                     <img  src={item.image} alt='products' className='products-imgs'></img>
                                     {/* {console.log(item.image)} */}

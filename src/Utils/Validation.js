@@ -9,7 +9,7 @@ const validateForm = (formObject)=>{
     const error = {};
 
    //validations for log in 
-       const emailRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+       const emailRegex = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
        if(!emailRegex.test(formObject.email)){
            // console.log(formObject.email);
           //Invalid email
