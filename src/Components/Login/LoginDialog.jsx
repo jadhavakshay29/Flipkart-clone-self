@@ -79,8 +79,9 @@ const signupUser = (e) => {
 
     // store the signupDataArray in local storage
     localStorage.setItem('signupDataArray', JSON.stringify(signupDataArray));
-
+    
     alert("User signed up"); // Display the success message
+  
   } else {
     alert("Please enter a valid email and password"); // Display the error message
   }
@@ -114,6 +115,7 @@ const loginUser = () => {
     props.setIsLoggedIn(true);
     props.setUserName(loginValues.email);
     alert("User is logged in");
+    props.setOpen(false);
   } else if(!isValid){
    
     alert("Please type valid email and password");
@@ -139,7 +141,8 @@ const toggleLogin =()=>{
     <Dialog
       open={props.open}
       onClose={handleClose}
-      PaperProps={{ sx: { maxWidth: "unset" } }}
+      PaperProps={{ sx: {maxWidth:"unset"} }}
+    
     >
       {/* {console.log(props.open)} */}
       <div className="login-box-container">
@@ -157,7 +160,7 @@ const toggleLogin =()=>{
                 name="email" 
                 variant="standard" 
                 onChange={(e)=>onLoginChange(e)} 
-                label="Enter Email/ Mobile number"
+                label="Enter Email"
                 error={errors.email ? true : false} // Set the error prop based on whether there is an error for the email field
                  helperText={errors.email} // Display the error message for the email field 
             />
@@ -176,8 +179,8 @@ const toggleLogin =()=>{
             </p>
 
             <Button className="login-btn" onClick={loginUser}>Login</Button>
-            <span style={{ textAlign: "center" }}>OR</span>
-            <Button className="otp-request-btn">Request OTP</Button>
+            {/* <span style={{ textAlign: "center" }}>OR</span>
+            <Button className="otp-request-btn">Request OTP</Button> */}
             <p onClick={() => toggleSignup()} className="create-acc">
               New to Flipkart? Create an account
             </p>
@@ -193,12 +196,12 @@ const toggleLogin =()=>{
                       error={errors.email ? true : false} // Set the error prop based on whether there is an error for the email field
                        helperText={errors.email} // Display the error message for the email field 
                   />
-                  <span style={{color:'#2874f0', margin:'40px 0 0 15px'}}>Change?</span>
+                  {/* <span style={{color:'#2874f0', margin:'40px 0 0 15px'}}>Change?</span> */}
               </div>
-              <div style={{display:'flex', marginTop:'5px'}}>
+              {/* <div style={{display:'flex', marginTop:'5px'}}>
                  <span style={{marginTop:'50px'}}>OTP is sent to Email</span>
                  <span style={{color:'#2874f0', margin:'50px 0 0 60px'}} >Resend?</span>
-              </div>
+              </div> */}
             
             <TextField
                   variant="standard" 
@@ -211,7 +214,7 @@ const toggleLogin =()=>{
              />
             <Button className="login-btn" 
             style={{ marginTop: "20px" }}
-            onClick={(e)=>signupUser(e)}>
+            onClick={(e)=>{signupUser(e)}}>
               Continue
             </Button>
             <Button className="otp-request-btn" 

@@ -1,26 +1,28 @@
 import { useEffect, useState,useCallback } from 'react';
 import './TotalBill.css';
 
-const TotalBill = ({cartItems})=>{
+const TotalBill = ({cartItems, count, discount})=>{
 
     const [price, setPrice] = useState(0);
-    const [discount, setDiscount] = useState(0);
+    const [discount1, setdiscount1] = useState(0);
+
+    let OriginalPrice = price/ (1-discount/100);
 
     const totalAmount = useCallback(()=>{
-        let price = 0, discount=0;
+        let price = 0;
         cartItems.forEach(item=>{
-            let ProductDiscount = Math.floor((Math.random() * 60) + 10);
-            let Oprice = (item.price) / (1-(ProductDiscount/100));
             price+= item.price;
-            discount+=( Oprice-item.price );
         })
         setPrice(price);
-        setDiscount(discount);
-    }, [cartItems])
+        console.log(discount)
+        setdiscount1((discount*OriginalPrice)/100);
+    }, [cartItems, discount,OriginalPrice])
 
     useEffect(()=>{
         totalAmount();
     },[cartItems, totalAmount])
+
+  
     
     return (
        <div>
@@ -30,18 +32,18 @@ const TotalBill = ({cartItems})=>{
             <div className='bill-container'>
                 <p>Price ({cartItems.length}
                     {cartItems.length>1 ? ' items' : ' item'})
-                    <span>₹{price}</span>
+                    <span>₹{(OriginalPrice*count).toFixed()}</span>
                  </p>
                 <p>Discount
-                    <span className='green'>-₹{discount.toFixed(2)}</span>
+                    <span className='green'>-₹{(OriginalPrice-price).toFixed()}</span>
                  </p>
                 <p>Delivery Charges
                     <span className='green'>₹40</span>
                  </p>
                 <p  style={{fontSize:'20px'}}>Total Amount
-                    <span>₹{(price-discount+40).toFixed(2)}</span>
+                    <span>₹{((OriginalPrice*count)-discount1+40).toFixed()}</span>
                  </p>
-                 <p className='green-txt'>You will save {(discount-40).toFixed(2)} on this order</p>
+                 <p className='green-txt'>You will save {(OriginalPrice-price).toFixed()} on this order</p>
             </div>
        </div>
     )
