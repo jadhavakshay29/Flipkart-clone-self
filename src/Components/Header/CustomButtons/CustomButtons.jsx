@@ -39,7 +39,7 @@ const CustomButtons = ()=>{
                      )}
 
           
-          <p>Become a Seller</p>
+          <p style={{pointer:"cursor"}}>Become a Seller</p>
           <Tippy content={<MoreT/>} interactive={true}>  
              <p style={{cursor:'pointer'}}>More</p>
          </Tippy>

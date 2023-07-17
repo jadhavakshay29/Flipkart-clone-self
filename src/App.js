@@ -16,7 +16,6 @@ function App() {
                    <Route path='/product/:id' element={<DetailView />}/>  {/*id is a variable*/}
                    <Route path='/cart' element={<Cart />}/> 
                    <Route path='/payment' element={<Payment />}/> 
-                   ..
                </Routes>
           </div>
       </BrowserRouter>

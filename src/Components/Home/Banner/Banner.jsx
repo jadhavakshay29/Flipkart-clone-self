@@ -26,7 +26,8 @@ const Banner =()=>{
                  infinite={true}
                  autoPlay={true}
                  autoPlaySpeed={2000}
-                 keyBoardControl={true}>
+                 keyBoardControl={true}
+                 >
            {
             bannerData.map((data,index)=>(
                 <img src={data.url} key={index} alt='banner-images' className='banner-img'/>
