@@ -1,0 +1,105 @@
+.profile-container{
+    display: flex;
+    /* justify-content: center; */
+    height: 80vh;
+    margin: 4px 120px;
+    position: relative;
+    padding: 14px 64px;
+    
+}
+
+.profile-catagory ul{
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    box-shadow:0 1px 1px 0 rgba(0,0,0,.16);
+    margin-bottom: 0;
+}
+
+.profile-catagory ul li{
+    margin:0 35px;
+    list-style-type: none;
+    font-weight: 600;
+}
+.left-profile{
+    padding-right: 15px;
+    width: 25%;
+}
+.user-name{
+   background-color: white;
+   height: 10vh;
+   margin-bottom: 15px;
+}
+
+.orders{
+   background-color: white;
+   height :auto;
+}
+
+.personal-info{
+   background-color: white;
+   height: auto;
+   width: 75%;
+    padding-left: 16px;
+}
+
+.user-name{
+   display: flex;
+   align-items: center;
+   justify-content: left;
+   padding:0 20px;
+}
+
+.user-name .name-text p:nth-child(1){
+    /* flex-direction: column; */
+    margin: 0;
+    font-size:14px;
+    font-weight: 600;
+}
+.user-name .name-text p:nth-child(2){
+    /* flex-direction: column; */
+    margin: 0;
+    font-size:18px;
+    font-weight: 700;
+}
+
+.profile-logo img{
+    height: 50px;
+    width: 50px;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.title{
+    padding-left: 25px;
+    display: flex;
+    align-items: center;
+    border-top:1px solid rgb(135, 135, 135,0.2);
+}
+.title span:nth-child(1){
+    margin-top: 10px;
+    color: #1976d2;
+}
+.title span:nth-child(2){
+    padding: 0 0 12px 20px;
+    font-size: 16px;
+    color: #878787;
+    font-family: Roboto,Arial,sans-serif;
+    font-weight: 600;
+}
+
+.feature-list li{
+    margin-left: 0;
+    list-style-type: none;
+    font-size:14px;
+    font-family: Roboto,Arial,sans-serif;
+    cursor: pointer;
+    padding: 12px 6px 12px 35px;
+    color: #212121;
+}
+
+.feature-list li:hover{
+    color: #1976d2;
+    background-color: rgba(146, 200, 255, 0.1);
+    
+}

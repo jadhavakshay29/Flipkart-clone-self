@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import DetailView from './Components/Details/DetailView';
 import Cart from './Components/Cart/Cart';
 import Payment from './Components/Payments/Payment';
+import Profile from './Components/Header/Profile/Profile';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
                    <Route path='/product/:id' element={<DetailView />}/>  {/*id is a variable*/}
                    <Route path='/cart' element={<Cart />}/> 
                    <Route path='/payment' element={<Payment />}/> 
+                   <Route path='/profile' element={<Profile />}/>
                </Routes>
           </div>
       </BrowserRouter>

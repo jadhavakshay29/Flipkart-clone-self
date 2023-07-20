@@ -1,4 +1,5 @@
 import "./LoginMore.css";
+import { useNavigate } from "react-router-dom";
 
 //incons
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
@@ -11,9 +12,11 @@ const LoginMore = () => {
   const flipkartPlusLogo =
     "https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/plus_aef861.png";
 
+    const navigate = useNavigate();
+
   return (
     <div className="icon-container">
-      <div>
+      <div onClick={()=>navigate('./profile')}>
         <AccountCircleIcon style={{margin:'10px 0 15px 10px', color:'#2874f0'}} />
         <span>My Profile</span>
       </div> 
