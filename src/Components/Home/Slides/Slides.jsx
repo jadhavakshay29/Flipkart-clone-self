@@ -40,9 +40,11 @@ const Slides =(props)=>{
 
       useEffect(()=>{
         fetchProducts();
+            //  console.log("products", products)
       },[fetchProducts]);
 
-      // console.log("products", products);
+ 
+
 
     return(
         <div className='slide-container'>

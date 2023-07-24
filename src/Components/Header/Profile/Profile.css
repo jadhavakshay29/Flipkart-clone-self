@@ -1,11 +1,10 @@
 .profile-container{
     display: flex;
     /* justify-content: center; */
-    height: 80vh;
+    height: auto;
     margin: 4px 120px;
     position: relative;
     padding: 14px 64px;
-    
 }
 
 .profile-catagory ul{
@@ -14,6 +13,7 @@
     background-color: white;
     box-shadow:0 1px 1px 0 rgba(0,0,0,.16);
     margin-bottom: 0;
+    padding:12px 0;
 }
 
 .profile-catagory ul li{
@@ -24,6 +24,13 @@
 .left-profile{
     padding-right: 15px;
     width: 25%;
+    
+}
+.right-profile{
+    background-color: white;
+    width: 75%;
+    padding:20px 40px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.08);
 }
 .user-name{
    background-color: white;
@@ -34,13 +41,18 @@
 .orders{
    background-color: white;
    height :auto;
+   box-shadow: 0 2px 4px 0 rgba(0,0,0,.08);
 }
 
 .personal-info{
    background-color: white;
-   height: auto;
+   height: 100%;
    width: 75%;
-    padding-left: 16px;
+   padding-left: 16px;
+}
+
+.personal-info-section{
+    font-weight: 600;
 }
 
 .user-name{
@@ -103,3 +115,54 @@
     background-color: rgba(146, 200, 255, 0.1);
     
 }
+.input-feild{
+    border-radius: 2px;
+    background-color: #FAFAFA;
+    padding: 16px;
+    color: rgb(135, 135, 135,0.5);
+    width: 25%;
+    margin-right: 10px;
+    font-size: 16px;
+}
+.input-feild:nth-child(1){
+    margin-bottom: 20px;
+}
+.gender-section{
+    display: flex;
+    color:rgb(135, 135, 135);
+
+}
+
+.save-btn{
+    margin: 25px 5px;
+    padding: 15px 35px;
+    background-color:white;
+    color: #1976d2;
+    border: none;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+    border-radius: 2px;
+    font-weight: 700;
+    font-size: 18px;
+}
+.save-btn:active{
+    background-color: rgb(25, 118, 210,0.1);
+    transform: translateY(2px);
+    
+}
+.edit-span{
+    color:#1976d2;
+    font-size: 17px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+.on-edit-click{
+    background-color: white;
+    border-radius: 2px;
+    padding: 16px;
+    color: black;
+    width: 25%;
+    margin-right: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
