@@ -1,0 +1,106 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+   
+}
+.viewall-container{
+    margin:10px 30px 40px 10px;
+    display: flex;
+    font-family: 'Lato', sans-serif;
+    color: #212121;
+    height: auto;
+}
+.left-viewall-section{
+    background-color: white;
+    width: 16%;
+    margin-right: 10px;
+    height: 100%;
+    margin-bottom: 20px;
+}
+.right-viewall-section {
+    background-color: white;
+    width: 84%;
+    height: auto;
+    background-color: #fff;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+    row-gap: 0.5rem;
+    justify-items: center;
+    align-items: center;
+    border-radius: 7px;
+}
+
+.profile-catagory ul{
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    box-shadow:0 1px 1px 0 rgba(0,0,0,.16);
+    padding:12px 0;
+}
+.profile-catagory ul li{
+    margin:0 35px;
+    list-style-type: none;
+    font-weight: 600;
+}
+.filter-text{
+    border-bottom:1px solid rgb(135, 135, 135,0.2);
+    padding: 16px;
+}
+.filter-text span{
+    font-size:19px;
+    font-weight: 600;
+}
+.catagories{
+     margin-top: 16px;
+     padding-left: 16px;
+}
+.catagories ul li{
+   display: flex; 
+   align-items: center;
+   font-size: 18px;
+}
+.catagories ul li span:nth-child(1){
+   padding:0 16px;   
+}
+.catagories-ratings ul li span{
+    margin-bottom: 20px;
+}
+.products-cards {
+    margin:1rem 1rem;
+    width: 18.5rem;
+    height:30rem;
+    background-color: #fff;
+    display:flex;
+    flex-direction: column;
+    border: none;
+    border-radius: 7px;
+    
+}
+.products-cards img{
+    margin:0;
+    width: 18.5rem;
+    height:19.1rem;
+    padding: 1rem;
+    border-top-left-radius: 7px ;
+    border-top-right-radius: 7px ;
+}
+.products-cards .cards-content{
+    height: 160px;
+    /* padding: 0.9rem 1rem; */
+    padding-left: 1em;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    color: #212121;
+}
+
+.products-cards:hover{
+    box-shadow: 0 3px 16px 0 rgba(0,0,0,.11);
+}
+

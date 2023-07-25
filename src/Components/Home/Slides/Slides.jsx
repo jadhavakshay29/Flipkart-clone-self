@@ -1,7 +1,7 @@
 import Carousel from 'react-multi-carousel';
 import './Slides.css';
 import { Button, Divider } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -26,7 +26,7 @@ const Slides =(props)=>{
 
       const products = useSelector((state)=> state.allProducts.products);
       const dispatch = useDispatch();
-
+      const navigate = useNavigate();
     
     const fetchProducts = useCallback(async () => {
         const response = await axios
@@ -43,14 +43,11 @@ const Slides =(props)=>{
             //  console.log("products", products)
       },[fetchProducts]);
 
- 
-
-
     return(
         <div className='slide-container'>
             <div className='view-btn-bar'>
                 <p>{props.catagory}</p>
-                <Button variant="contained">VIEW ALL</Button>
+                <Button variant="contained" onClick={()=>navigate('/ViewAll')}>VIEW ALL</Button>
             </div>
             <Divider/>
             <div className='carasoul-container'>

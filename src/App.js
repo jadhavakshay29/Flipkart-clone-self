@@ -5,6 +5,7 @@ import DetailView from './Components/Details/DetailView';
 import Cart from './Components/Cart/Cart';
 import Payment from './Components/Payments/Payment';
 import Profile from './Components/Header/Profile/Profile';
+import ViewAll from './Components/Home/ViewAll/ViewAll';
 
 function App() {
   return (
@@ -15,9 +16,11 @@ function App() {
                <Routes>  {/*we are wrapping cause we need to use routing on these components */}
                    <Route path='/' element={<Home/>}/>  {/*home UI renders when there's nothing after / in url */}
                    <Route path='/product/:id' element={<DetailView />}/>  {/*id is a variable*/}
+                   <Route path='/ViewAll/product/:id' element={<DetailView />}/>  {/*id is a variable*/}
                    <Route path='/cart' element={<Cart />}/> 
                    <Route path='/payment' element={<Payment />}/> 
                    <Route path='/profile' element={<Profile />}/>
+                   <Route path='/viewAll' element={<ViewAll />}/>
                </Routes>
           </div>
       </BrowserRouter>

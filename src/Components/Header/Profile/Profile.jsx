@@ -122,7 +122,6 @@ const Profile =()=>{
                                 <input type='radio' id='female' name='gender' value='Female' />
                                 <label htmlFor='female'>Female</label>
                             </div>
-                           
                          </div>
                     </div>
                     <div className="email-section">
