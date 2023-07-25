@@ -1,16 +1,22 @@
 import './ViewAll.css';
 import StarIcon from '@mui/icons-material/Star';
-import { Slider } from '@mui/material';
+import { Checkbox, Slider } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import axios from 'axios';
 import {setProducts} from '../../../redux/actions/productActions';
 import { Link } from 'react-router-dom';
 
 const ViewAll =()=>{
+    
+    const [filteredProducts, setFilteredProducts] = useState([]);
+    const [catagory, setCatagory] = useState("");
+    // const [isSelected, setIsSelected] = useState(true);
+
+    
     const products = useSelector((state)=> state.allProducts.products);
     const dispatch = useDispatch();
-
+    
     const fetchProducts = useCallback(async () => {
         const response = await axios
           .get('https://content.newtonschool.co/v1/pr/63b6c911af4f30335b4b3b89/products')
@@ -23,10 +29,21 @@ const ViewAll =()=>{
 
       useEffect(()=>{
         fetchProducts();
-            //  console.log("products", products)
+           
       },[fetchProducts]);
-
+//   console.log("products", products)
       let discount = Math.floor((Math.random() * 60) + 10);  // 0 to 69
+
+      const handleChange = (e) => {
+        if(e){
+          setCatagory(e.target.value)
+        }
+      };
+
+      useEffect(() => {
+        setFilteredProducts(products.filter((prod) => prod.category.includes(catagory)));
+  }, [catagory, products]);
+
 
     return(
         <> 
@@ -51,10 +68,22 @@ const ViewAll =()=>{
                    <div className='catagories'>
                       <span>CATAGORIES</span>
                       <ul>
-                        <li><span><input type='checkbox'/></span><span>men's clothing</span></li>
-                        <li><span><input type='checkbox'/></span><span>women's clothing</span></li>
-                        <li><span><input type='checkbox'/></span><span>jewelery</span></li>
-                        <li><span><input type='checkbox'/></span><span>electronics</span></li>
+                            <li>
+                                <span><Checkbox type='checkbox' value="men's clothing" onChange={handleChange}/></span>
+                                <span>men's clothing</span>
+                            </li>
+                            <li>
+                                <span><Checkbox type='checkbox' value="women's clothing" onChange={handleChange}/></span>
+                                <span>women's clothing</span>
+                            </li>
+                            <li>
+                                <span><Checkbox type='checkbox' value="jewelery" onChange={handleChange}/></span>
+                                <span>jewelery</span>
+                            </li>
+                            <li>
+                                <span><Checkbox type='checkbox' value="electronics" onChange={handleChange}/></span>
+                                <span>electronics</span>
+                            </li>
                       </ul>
                    </div>
                    <div className='catagpries-price catagories'>
@@ -76,15 +105,15 @@ const ViewAll =()=>{
                    <div className='catagories-ratings catagories'>
                       <span>CUSTOMER RATINGS</span>
                       <ul>
-                        <li><span><input type='checkbox'/></span><span>3 <StarIcon style={{fontSize:"16px"}}/> & above</span></li>
-                        <li><span><input type='checkbox'/></span><span>4 <StarIcon style={{fontSize:"16px"}}/> & above</span></li>
+                        <li><span><Checkbox type='checkbox'/></span><span>3 <StarIcon style={{fontSize:"16px"}}/> & above</span></li>
+                        <li><span><Checkbox type='checkbox'/></span><span>4 <StarIcon style={{fontSize:"16px"}}/> & above</span></li>
                       </ul>
                    </div>
                 </div>
                 <div className='right-viewall-section'>
                     {   
                      
-                         products.map((item, index)=>(
+                     filteredProducts.map((item, index)=>(
                             <Link key={index} to={`/product/${item.id}`} style={{textDecoration:'none'}}>  
                                 <div className='products-cards'>
                                     <img src={item.image} alt='products'/>
