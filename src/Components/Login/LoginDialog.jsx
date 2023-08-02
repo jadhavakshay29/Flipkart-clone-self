@@ -142,9 +142,8 @@ const toggleLogin =()=>{
       open={props.open}
       onClose={handleClose}
       PaperProps={{ sx: {maxWidth:"unset"} }}
-    
     >
-      {/* {console.log(props.open)} */}
+
       <div className="login-box-container">
         <div className="left-dailog">
           <h1 style={{ color: "white" }}>{account.heading}</h1>
@@ -196,13 +195,8 @@ const toggleLogin =()=>{
                       error={errors.email ? true : false} // Set the error prop based on whether there is an error for the email field
                        helperText={errors.email} // Display the error message for the email field 
                   />
-                  {/* <span style={{color:'#2874f0', margin:'40px 0 0 15px'}}>Change?</span> */}
               </div>
-              {/* <div style={{display:'flex', marginTop:'5px'}}>
-                 <span style={{marginTop:'50px'}}>OTP is sent to Email</span>
-                 <span style={{color:'#2874f0', margin:'50px 0 0 60px'}} >Resend?</span>
-              </div> */}
-            
+              
             <TextField
                   variant="standard" 
                   name='password' 
