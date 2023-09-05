@@ -92,10 +92,6 @@ const signupUser = (e) => {
   }
 }
 
-// useEffect(() => {
-//   console.log(signupDataArray);
-// }, [signupDataArray]);
-
 const onLoginChange = (e)=>{
    setLoginValues({
     ...loginValues,
@@ -120,7 +116,6 @@ const loginUser = () => {
     props.setIsLoggedIn(true);
     props.setUserName(loginValues.email);
     alert("User is logged in");
- 
     props.setOpen(false);
   } else if(!isValid){
    
@@ -143,7 +138,6 @@ const toggleLogin =()=>{
   toggleAccount(accountInitialValues.login);
   passwordInputRef.current.value = "";
 }
-
 
   return (
     <Dialog

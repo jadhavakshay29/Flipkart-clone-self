@@ -9,7 +9,7 @@ import ViewAll from './Components/Home/ViewAll/ViewAll';
 
 function App() {
   return (
-    <div>
+      <div>
       <BrowserRouter>
           <Header />
           <div style={{marginTop:64}}> {/*margin top cause we have kept the header fixed positioned*/}
@@ -25,6 +25,7 @@ function App() {
           </div>
       </BrowserRouter>
     </div>
+    
   ); 
 }
 

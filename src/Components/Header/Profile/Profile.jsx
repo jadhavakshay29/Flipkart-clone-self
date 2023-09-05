@@ -8,9 +8,9 @@ import { useState } from 'react';
 
 const Profile =()=>{
 
-    const [fname, setFname] = useState('');
+    const [fname, setFname] = useState('User');
     const [lname, setLname] = useState('');
-    const [isSaved, setIsSaved] = useState(false);
+    const [isSaved, setIsSaved] = useState(true);
 
    const onSaveBtn=(e)=>{
       e.preventDefault();

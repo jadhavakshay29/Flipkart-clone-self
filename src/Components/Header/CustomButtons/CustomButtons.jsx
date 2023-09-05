@@ -50,6 +50,7 @@ const CustomButtons = ()=>{
              <span> Cart</span>
           </Link>
           <LoginDialog open={open} setOpen={setOpen} setIsLoggedIn={setIsLoggedIn}  setUserName={setUserName}/>
+         
       </div>
    )
 }
