@@ -1,8 +1,8 @@
 import { Button, Dialog, TextField } from "@mui/material";
 import { useState } from "react";
 import "./LoginDialog.css";
-import { useEffect } from "react";
 import { validateForm } from "../../Utils/Validation";
+import { useRef } from "react";
 
 const LoginDialog = (props) => {
 
@@ -35,6 +35,9 @@ const LoginDialog = (props) => {
     const [signupData, setSignupData] = useState([]);
     const [errors, setErrors] = useState({});
 
+    // Inside your component function
+   const passwordInputRef = useRef(null);
+
 
     // to stored signed up user data into local storage 
     const [signupDataArray, setSignupDataArray] = useState(() => {
@@ -52,6 +55,7 @@ const LoginDialog = (props) => {
 
   const toggleSignup = () => {
     toggleAccount(accountInitialValues.signup);
+    passwordInputRef.current.value = "";
   };
 
   const onInputChange = (e)=>{
@@ -74,22 +78,23 @@ const signupUser = (e) => {
 
   if (isSignupValid) {
     setSignupDataArray([...signupDataArray, signupData]); // add the signupData array to signupDataArray
-    console.log(signupDataArray);
+    // console.log(signupDataArray);
     setSignupData(SignupinitialValues); // clear the signupData after storing it in an array
 
     // store the signupDataArray in local storage
     localStorage.setItem('signupDataArray', JSON.stringify(signupDataArray));
     
     alert("User signed up"); // Display the success message
+    toggleLogin();
   
   } else {
     alert("Please enter a valid email and password"); // Display the error message
   }
 }
 
-useEffect(() => {
-  console.log(signupDataArray);
-}, [signupDataArray]);
+// useEffect(() => {
+//   console.log(signupDataArray);
+// }, [signupDataArray]);
 
 const onLoginChange = (e)=>{
    setLoginValues({
@@ -115,6 +120,7 @@ const loginUser = () => {
     props.setIsLoggedIn(true);
     props.setUserName(loginValues.email);
     alert("User is logged in");
+ 
     props.setOpen(false);
   } else if(!isValid){
    
@@ -122,6 +128,7 @@ const loginUser = () => {
   } else {
     // User does not exist, show "Sign up first" message
     alert("Sign up first");
+    toggleSignup();
   }
 };
 
@@ -134,6 +141,7 @@ const validateInput = (formObject) => {
 
 const toggleLogin =()=>{
   toggleAccount(accountInitialValues.login);
+  passwordInputRef.current.value = "";
 }
 
 
@@ -162,6 +170,7 @@ const toggleLogin =()=>{
                 label="Enter Email"
                 error={errors.email ? true : false} // Set the error prop based on whether there is an error for the email field
                  helperText={errors.email} // Display the error message for the email field 
+              
             />
             <TextField 
                 variant="standard" 
@@ -171,6 +180,7 @@ const toggleLogin =()=>{
                 label="Enter Password" 
                 error={errors.password ? true : false} // Set the error prop based on whether there is an error for the password field
                helperText={errors.password} // Display the error message for the password field
+               inputRef={passwordInputRef} // Set the ref for the password input field
             />
             <p className="policy">
               By continuing, you agree to Flipkart's<span>Terms of Use</span>{" "}
@@ -205,6 +215,7 @@ const toggleLogin =()=>{
                   label="Enter password" 
                   error={errors.password ? true : false} // Set the error prop based on whether there is an error for the password field
                   helperText={errors.password} // Display the error message for the password field
+                  inputRef={passwordInputRef}
              />
             <Button className="login-btn" 
             style={{ marginTop: "20px" }}
