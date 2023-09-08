@@ -6,6 +6,7 @@ import Cart from './Components/Cart/Cart';
 import Payment from './Components/Payments/Payment';
 import Profile from './Components/Header/Profile/Profile';
 import ViewAll from './Components/Home/ViewAll/ViewAll';
+import Footer from './Components/Footer/Footer';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
                    <Route path='/viewAll' element={<ViewAll />}/>
                </Routes>
           </div>
+          <Footer/>
       </BrowserRouter>
     </div>
     
